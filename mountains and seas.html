@@ -1,0 +1,424 @@
+<!doctype html>
+
+<!--I used Visual Studio Code's "Go Live" function to assign
+http addresses to the webpages in this folder-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+    <link rel="stylesheet" href="styles/mountains.css"/>
+   
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" 
+          integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+          crossorigin="anonymous">
+
+          <link rel="preconnect" href="https://fonts.gstatic.com"> 
+          
+    <link href="https://fonts.googleapis.com/css2?family=Amita&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amita&family=Cinzel+Decorative:wght@700&family=Cormorant+SC:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amita&family=Cinzel+Decorative:wght@700&family=Cormorant+SC:wght@300;500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
+
+    <title>Classic of Mountains and Seas</title>
+  </head>
+  <body >
+    <div class="demo-wrap" >
+      <div class="demo-content" id="creatureimg" >
+        
+    <h1 >Create Your Own <i>Classic of Mountains and Seas</i> Creature</h1>
+    <h5>
+      <p>
+      The <i><a href="https://en.wikipedia.org/wiki/Classic_of_Mountains_and_Seas">Classic of Mountains and Seas</a> </i> is a historical/mythological text of geography 
+      and beasts written in Classical Chinese roughly 2000 - 3000 years ago.
+      </p>
+     
+      <p>
+      A creature from the <i>Classic of Mountains and Seas</i> has a head from one existing creature, a torso from a second existing creature,
+      and limbs from a third existing creature.
+    </p>
+      
+      <p>
+      Now, you've got the opportunity to create your own creature that mimics one from 
+      the <i>Classic of Mountains and Seas</i>.
+    </p>
+
+    <p>
+      Select your desired body parts and drag them to the appropriate positions to make up your creature.
+    </p>
+
+    <a href="./animal example.html">
+      <p>
+        Click here to see an example of such a creature.
+      </p>
+    
+    </a>
+
+    </h5>
+
+    
+
+<div class="container" >
+
+<div class="aligned" >
+<div class="col-sm-7 text" >
+  <h2>Canvas</h2>
+  <div class="description" >
+    <div id="mycanvas" draggable="true" ></div>
+  </div>
+</div>
+
+</div>
+
+<div class="aligned">
+
+<div class="col-sm-5 text">
+  <div class="description">
+    <h2>Select your creature's body parts</h2>
+  </div>
+
+  <h2>
+
+  <h3 id='buttondes'>Select a head</h3>
+  <button type="button" id="run" onclick="addimage('./images/fox head.png');record('head','fox');">fox head</button>
+  <button type="button" id="run" onclick="addimage('./images/turtle head.png');record('head','turtle');">turtle head</button>
+  <button type="button" id="run" onclick="addimage('./images/horse head.png');record('horse','turtle');">horse head</button>
+
+  <h3 id='buttondes'>Select a torso</h3>
+  <button type="button" id="run" onclick="addimage('./images/fish torso.png');record('torso','fish');">fish torso</button>
+  <button type="button" id="run" onclick="addimage('./images/barbarian torso.png');record('torso','barbarian');">barbarian torso</button>
+  <button type="button" id="run" onclick="addimage('./images/snake torso.png');record('torso','snake');">snake torso</button>
+ 
+  <h3 id='buttondes'>Select limbs</h3>
+  <button type="button" id="run" onclick="addimage('./images/phoenix limb.png');record('limb','phoenix');">phoenix claw</button>
+  <button type="button" id="run" onclick="addimage('./images/lynx limb.png');record('limb','lynx');">lynx limb</button>
+  <button type="button" id="run" onclick="addimage('./images/bird limb.png');record('limb','bird');">bird wing</button>
+
+</h2>
+
+</div>
+
+<h4>
+  
+Clear the canvas and restart
+</h4>
+  <button type="button"  onclick="clearcanvas()">Clear canvas</button>
+
+  
+
+</div> 
+
+  </div>
+
+
+<div>
+
+   <h4>
+      Check if your creature has already been imagined by the ancient people
+      </h4>
+      <button type="button" id="existing" onclick="comparecreature()" > Originality check </button>
+
+      <h2 id="compareresult"> Originality </h2>
+
+  
+      <h4>
+        Get your creature's description in Classical Chinese
+        </h4>
+        <h6>
+          Note that you must select at least one head, one torso, and one limb 
+          </h6>
+        <button type="button" id="existing" onclick="getdes()" > Get the description </button>
+
+        
+        <br></br>
+  
+        <div>
+        <h7 id="des"> Description </h7>
+      </div>
+  
+
+  <h4>
+    Take a screenshot of your creature and scroll down to save it
+    </h4>
+    <button type="button" onclick="takeshot()"> Take a screenshot </button>
+
+<h2>Screenshot:</h2>
+    <div id="output"></div>
+  </div>
+
+    <!--below are the scripts used to deal with the creature -->
+
+    <script>
+
+//declare a class
+
+class creature{
+  constructor(head,torso,limb) {
+    this.head = head;
+    this.torso = torso;
+    this.limb =limb;
+  }
+}
+
+//add an image
+
+function addimage(src) {
+  var img = document.createElement("img");
+  var imglist = document.getElementById("mycanvas");
+  img.src = src;
+  //img.class= "resize";         
+  //img.width="100%";
+  //img.height="100%";
+  
+  imglist.appendChild(img);
+   $(img).draggable();
+   
+
+   return imglist;
+}
+
+
+//record the body parts selected, put them into a map
+
+
+const creaturemap = new Map();
+
+function record(x,y) {
+
+creaturemap.set(x, y);
+console.log(creaturemap);
+}
+
+
+//clear the canvas and clear the map
+
+function clearcanvas() {
+  var imglist = [].slice.call(document.getElementsByTagName('img'), 0); // get the images as array like object, and turn it into an array using slice
+
+  imglist.forEach(function(img) { 
+    img.parentNode.removeChild(img); // remove the child node via the parent node
+    creaturemap.clear();  //map cleared
+    console.log(creaturemap);
+  
+  
+  });
+}
+
+//take a screenshot
+
+function takeshot() {
+    let div = document.getElementById("creatureimg");
+  
+     html2canvas(div).then(
+                function (canvas) {
+                    document.getElementById('output').appendChild(canvas);
+                })
+        }
+
+
+    
+//json timeout check
+window.addEventListener("DOMContentLoaded", event => {
+                document.querySelector("#existing").addEventListener("click", event => {
+                    $.ajax({ 
+                        url: "./existing creature.json",
+                        timeout: 2000
+                    }).done(() => {
+                        console.log("Completed");
+                        
+                    }).fail(() => {
+                        console.error("Timeout!");
+                        
+                    });
+                });
+            });
+
+
+
+//access json data
+
+function testAjax(handleData) {
+
+$.ajax({
+              url:"./existing creature.json",
+              type: 'GET',
+              
+              dataType: 'json',
+              async: false,  
+              
+            })
+            
+            .done(function(data){
+                console.log("data accessed");
+                
+                //console.log(data);
+
+                handleData(data);  //data is handled so that it can be used later  
+                
+              })
+
+              
+
+            .fail(function(xhr,status,errorThrown){
+              console.log("data not accessed");
+              })
+
+     }                
+
+
+//define a function to compare whther two maps are the same
+
+function compareMaps(map1, map2) {
+    var testVal;
+    if (map1.size !== map2.size) {
+        return false;
+    }
+    for (var [key, val] of map1) {
+        testVal = map2.get(key);
+        // in cases of an undefined value, make sure the key
+        // actually exists on the object so there are no false positives
+        if (testVal !== val || (testVal === undefined && !map2.has(key))) {
+            return false;
+        }
+    }
+    return true;
+}
+
+//test the above function
+//map1 = new Map();
+//map1.set('head', 'fox');
+//console.log(compareMaps(map1, creaturemap));
+
+
+//compare the creature to the creature from the JSon file
+
+function comparecreature(){
+
+    testAjax(function(output){    //the output is from the previous Ajax call. We handled the data so we 
+                                   //can use output here
+
+//parse the json data to a map 
+
+    const existingcreaturemap = new Map();
+
+//existingcreaturemap.set('name', output.name);
+    existingcreaturemap.set('head', output.head);
+    existingcreaturemap.set('torso', output.torso);
+    existingcreaturemap.set('limb', output.limb);
+
+
+    console.log(existingcreaturemap);
+
+//compare the existingcreaturemap to the creaturemap
+    console.log(compareMaps(existingcreaturemap, creaturemap));
+
+    if (compareMaps(existingcreaturemap, creaturemap))
+    {
+      document.getElementById("compareresult").innerHTML = "Your creature is not original";
+
+    }
+    else{
+      document.getElementById("compareresult").innerHTML = "Your creature is original";
+
+    }
+
+});
+
+
+}
+
+//a method to see if the map has a certain value
+const findInMap = (map, val) => {
+  for (let v of map.values()) {
+    if (v === val) { 
+      return true; 
+    }
+  }  
+  return false;
+}
+
+
+//get creature description in Classical Chinese
+function getdes(){
+
+  dupcreaturemap = creaturemap;    //initiate a new map which iwll consists of the description in Classical Chinese 
+  console.log(dupcreaturemap);    
+
+
+  if (findInMap(dupcreaturemap, 'fox')){
+    dupcreaturemap.delete('head');
+    dupcreaturemap.set('首', '狐');
+  };
+
+  if (findInMap(dupcreaturemap, 'turtle')){
+    dupcreaturemap.delete('head');
+    dupcreaturemap.set('首', '龟');
+  };
+
+  if (findInMap(dupcreaturemap, 'horse')){
+    dupcreaturemap.delete('head');
+    dupcreaturemap.set('首', '马');
+  };
+
+  if (findInMap(dupcreaturemap, 'fish')){
+    dupcreaturemap.delete('torso');
+    dupcreaturemap.set('身', '鱼');
+  };
+  
+  if (findInMap(dupcreaturemap, 'barbarian')){
+    dupcreaturemap.delete('torso');
+    dupcreaturemap.set('身', '蛮');
+  };
+  
+
+  if (findInMap(dupcreaturemap, 'snake')){
+    dupcreaturemap.delete('torso');
+    dupcreaturemap.set('身', '蛇');
+  };
+  
+  if (findInMap(dupcreaturemap, 'phoenix')){
+    dupcreaturemap.delete('limb');
+    dupcreaturemap.set('足', '凤');
+  };
+
+  if (findInMap(dupcreaturemap, 'lynx')){
+    dupcreaturemap.delete('limb');
+    dupcreaturemap.set('足', '猞');
+  };
+
+  if (findInMap(dupcreaturemap, 'bird')){
+    dupcreaturemap.delete('limb');
+    dupcreaturemap.set('足', '鸟');
+  };
+
+
+  console.log(dupcreaturemap);    
+  document.getElementById("des").innerHTML = dupcreaturemap.get('首')+ " 首" 
+    + "  "+ dupcreaturemap.get('身')+ " 身" 
+    +"  "+ dupcreaturemap.get('足')+ " 足"  ;
+  
+}
+
+    </script>
+
+
+<style>
+
+
+</style>
+  
+</body>    
+    
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+
+<!--comment-->
+<html lang="en">
+
+  <div class="demo-wrap">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+
+    <link rel="stylesheet" href="styles/mountains.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" 
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+    crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Amita&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amita&family=Cinzel+Decorative:wght@700&family=Cormorant+SC:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amita&family=Cinzel+Decorative:wght@700&family=Cormorant+SC:wght@300;500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
+    <body >
+      
+
+        <div class="demo-content">
+
+
+        <div class="image_block">
+        
+          <h2 class="example">Click the image to see where the body parts of this animal are from.</h2>
+          <img src="./images/dragon.jpeg" alt='myimage' class='an_image' />
+          <div class="image_desc" style="display:none">
+             This creature has the head of a kylin, the torso of a dragon, and the limbs of a bird.
+          </div>
+        </div>
+
+        
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      
+    
+    <script>
+
+        $( document ).ready(function() {
+            $('.image_block .an_image').click(function() {
+                $(this).parent().find('.image_desc').toggle();
+            });
+        });
+    </script>
+    
+    </div>
+ </div>
+    
+    </body>
+
+    </html>
